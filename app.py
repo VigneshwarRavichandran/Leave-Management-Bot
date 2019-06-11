@@ -17,6 +17,21 @@ def results():
 	if action == 'get_date':
 		response = get_date(req, username, leave_limit)
 
+	elif action == 'get_leave':
+		response = get_leave()
+
+	elif action == 'create_event':
+		response = create_event(req)
+
+	elif action == 'delete_event':
+		response = delete_event(req)
+
+	elif action == 'get_reschedule_event':
+		response = get_reschedule_event(req)
+
+	elif action == 'reschedule_event':
+		response = reschedule_event(req)
+
 	return { "fulfillmentMessages" : response }
 		
 if __name__ == '__main__':

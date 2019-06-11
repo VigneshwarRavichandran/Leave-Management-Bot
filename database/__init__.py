@@ -23,6 +23,13 @@ class UserDb():
       return(cur.fetchone())
     raise ConnectionError()
 
+  def get_email(self, event_attendee):
+    cur = self.db_connect()
+    if cur:
+      cur.execute("SELECT email FROM user_details WHERE name = '{0}'".format(event_attendee))
+      return(cur.fetchone())
+    raise ConnectionError()
+
   def close(self):
     self.conn.close()
     
