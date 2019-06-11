@@ -14,10 +14,12 @@ from datetimerange import DateTimeRange
 q = Queue(connection=Redis())
 q.empty()
 
+# background process
 def background_process(email_msg):
 	result = q.enqueue(send_email, email_msg)
 	return True
 
+# Sending emails
 def send_email(email_msg):
 	smtp_ssl_host = 'smtp.gmail.com'
 	smtp_ssl_port = 465
@@ -25,7 +27,6 @@ def send_email(email_msg):
 	password = 'user@123'
 	sender = '16jecit119@gmail.com'
 	# contents for the message
-
 	msg = MIMEText(email_msg)
 	msg['Subject'] = 'Leave Request'
 	msg['From'] = sender

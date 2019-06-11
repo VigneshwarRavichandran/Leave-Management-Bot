@@ -11,6 +11,7 @@ def results():
 	req = request.get_json(force=True)
 	action = req['queryResult']['action']
 	response = None
+	# For test purpose
 	username = 'Vigneshwar'
 	leave_limit = 20
 
